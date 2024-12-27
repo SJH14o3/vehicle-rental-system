@@ -14,12 +14,11 @@
             <Font size="20.0" />
          </font>
       </Label>
-      <CheckBox fx:id="checkBoxAvailability" layoutX="15.0" layoutY="40.0" mnemonicParsing="false" text="Available" />
-      <CheckBox fx:id="checkBoxCar" layoutX="144.0" layoutY="40.0" mnemonicParsing="false" onAction="#toggleCar" text="Car" />
-      <CheckBox fx:id="checkBoxMotorbike" layoutX="204.0" layoutY="40.0" mnemonicParsing="false" onAction="#toggleMotorbike" text="Motorbike" />
-      <CheckBox fx:id="checkBoxBicycle" layoutX="294.0" layoutY="40.0" mnemonicParsing="false" onAction="#toggleBicycle" text="Bicycle" />
-      <Button layoutX="1214.0" layoutY="36.0" mnemonicParsing="false" onAction="#switchToAccount" prefWidth="100.0" text="Account" AnchorPane.rightAnchor="15.0" />
-      <Button layoutX="1050.0" layoutY="36.0" mnemonicParsing="false" onAction="#switchToReservations" prefWidth="100.0" text="Reservations" />
+      <CheckBox fx:id="checkBoxAvailability" layoutX="15.0" layoutY="40.0" mnemonicParsing="false" text="Only Availables" />
+      <CheckBox fx:id="checkBoxCar" layoutX="144.0" layoutY="40.0" mnemonicParsing="false" onAction="#toggleCar" selected="true" text="Car" />
+      <CheckBox fx:id="checkBoxMotorbike" layoutX="204.0" layoutY="40.0" mnemonicParsing="false" onAction="#toggleMotorbike" selected="true" text="Motorbike" />
+      <CheckBox fx:id="checkBoxBicycle" layoutX="294.0" layoutY="40.0" mnemonicParsing="false" onAction="#toggleBicycle" selected="true" text="Bicycle" />
+      <Button layoutX="1170.0" layoutY="36.0" mnemonicParsing="false" onAction="#switchToReservations" prefWidth="100.0" text="Reservations" />
       <ListView fx:id="vehicleListView" layoutX="14.0" layoutY="70.0" prefHeight="640.0" prefWidth="1260.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" />
       <Button layoutX="375.0" layoutY="36.0" mnemonicParsing="false" onAction="#applyClicked" text="Apply" />
    </children>

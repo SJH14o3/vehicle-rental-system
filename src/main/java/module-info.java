@@ -9,5 +9,6 @@ module com.sjh14o3.vehiclerentalsystem {
 
     opens com.sjh14o3.vehiclerentalsystem to javafx.fxml;
     opens com.sjh14o3.vehiclerentalsystem.controllers to javafx.fxml;
+    opens com.sjh14o3.vehiclerentalsystem.data to javafx.base;
     exports com.sjh14o3.vehiclerentalsystem;
 }

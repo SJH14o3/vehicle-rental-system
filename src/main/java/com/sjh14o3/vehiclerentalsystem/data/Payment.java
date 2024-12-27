@@ -1,13 +1,17 @@
 package com.sjh14o3.vehiclerentalsystem.data;
 
 public class Payment {
-    private double amount;
+    private int amount;
 
-    public double getAmount() {
+    public int getAmount() {
         return amount;
     }
 
-    public void setAmount(double amount) {
+    public void setAmount(int amount) {
+        this.amount = amount;
+    }
+
+    public Payment(int amount) {
         this.amount = amount;
     }
 }

@@ -1,5 +1,7 @@
 package com.sjh14o3.vehiclerentalsystem.data;
 
+import org.bson.types.ObjectId;
+
 public abstract class MotorizedVehicle extends Vehicle {
     protected short power; // in Horse Power
     protected short torque; // in N.M
@@ -123,6 +125,36 @@ public abstract class MotorizedVehicle extends Vehicle {
         };
     }
 
+    public static String getFuelTypeAsString(byte fuelType) {
+        return switch (fuelType) {
+            case FUEL_PETROL -> "Petrol";
+            case FUEL_DIESEL -> "Diesel";
+            case FUEL_ELECTRIC -> "Electric";
+            default -> "Unknown";
+        };
+    }
+
+    public String getEngineTypeAsString() {
+        return switch (engineType) {
+            case ENGINE_PETROL -> "Petrol";
+            case ENGINE_DIESEL -> "Diesel";
+            case ENGINE_ELECTRIC -> "Electric";
+            case ENGINE_HYBRID -> "Plug-in Hybrid";
+            case ENGINE_PLUGIN_HYBRID -> "Hybrid";
+            default -> "UNKNOWN";
+        };
+    }
+
+    public String getClassificationAsString() {
+        return switch (classification) {
+            case CLASSIFICATION_CITY -> "City";
+            case CLASSIFICATION_SPORT -> "Sport";
+            case CLASSIFICATION_OFF_ROAD -> "Off Road";
+            case CLASSIFICATION_LUXURY -> "Luxury";
+            default -> "UNKNOWN";
+        };
+    }
+
     public Integer[] getFuelsAsInt() {
         Integer[] out = new Integer[fuelType.length];
         for (int i = 0; i < fuelType.length; i++) {
@@ -131,10 +163,52 @@ public abstract class MotorizedVehicle extends Vehicle {
         return out;
     }
 
+    public String getFuelCapacityAsString() {
+        if (engineType == ENGINE_ELECTRIC) return "None";
+        return fuelCapacity + " L";
+    }
+
+    public String getBatteryCapacityAsString() {
+        if (!(engineType == ENGINE_HYBRID || engineType == ENGINE_PLUGIN_HYBRID || engineType == ENGINE_ELECTRIC)) return "None";
+        else return batteryCapacity + " KW/H";
+    }
+
     @Override
     public String cardInformation() {
         return getImageFolderURI() + "~" + getMake() + "~" + getModel() + "~" + getYear() + "~" + getPower() + " HP~" +
-                getTorque() + " N.M~" + getGears() + " Speed " + getTransmissionAsString() + "~" + getDailyRentalRate() + "$";
+                getTorque() + " N.M~" + getGears() + " Speed " + getTransmissionAsString() + "~" + getDailyRentalRate() +
+                "$~" + getType() + "~" + getAvailabilityStatus() + "~" + getId();
+    }
+
+    @Override
+    public String[] getAttributesAsStringArray() {
+        String[] baseAttributes = super.getAttributesAsStringArray();
+        String[] motorizedAttributes = new String[] {
+                "power: " + power + " HP",
+                "torque: " + torque + " N.M",
+                "transmission: " + getTransmissionAsString(),
+                "maxSpeed: " + maxSpeed + "KM/H",
+                "zeroToHundredTime: " + zeroToHundredTime + " s",
+                "engineType: " + getEngineTypeAsString(),
+                "fuelType: " + (fuelType != null ? String.join(", ", byteArrayToStringArray(fuelType)) : ""),
+                "fuelCapacity: " + getFuelCapacityAsString(),
+                "batteryCapacity: " + getBatteryCapacityAsString(),
+                "classification: " + getClassificationAsString()
+        };
+
+        return mergeArrays(baseAttributes, motorizedAttributes);
+    }
+
+    // Helper method to convert byte array to a string array
+    private static String[] byteArrayToStringArray(byte[] byteArray) {
+        if (byteArray == null) {
+            return new String[0];
+        }
+        String[] stringArray = new String[byteArray.length];
+        for (int i = 0; i < byteArray.length; i++) {
+            stringArray[i] = getFuelTypeAsString(byteArray[i]);
+        }
+        return stringArray;
     }
 
     public MotorizedVehicle(String make, String model, short year, String imageFolderURI, String color, int dailyRentalRate,
@@ -154,10 +228,14 @@ public abstract class MotorizedVehicle extends Vehicle {
         this.classification = classification;
     }
 
-    public MotorizedVehicle(String id, String make, String model, short year, String imageFolderURI, int dailyRentalRate, byte availabilityStatus, short weight, byte type, byte gears, short power, short torque, byte transmission) {
+    public MotorizedVehicle(ObjectId id, String make, String model, short year, String imageFolderURI, int dailyRentalRate, byte availabilityStatus, short weight, byte type, byte gears, short power, short torque, byte transmission) {
         super(id, make, model, year, imageFolderURI, dailyRentalRate, availabilityStatus, weight, type, gears);
         this.power = power;
         this.torque = torque;
         this.transmission = transmission;
+    }
+
+    public MotorizedVehicle() {
+        super();
     }
 }

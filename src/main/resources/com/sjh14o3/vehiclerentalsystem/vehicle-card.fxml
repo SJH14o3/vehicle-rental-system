@@ -8,19 +8,19 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane onMouseClicked="#switchToFullDetail" prefHeight="220.0" prefWidth="1260.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sjh14o3.vehiclerentalsystem.controllers.VehicleCardController">
+<AnchorPane onMouseClicked="#switchToFullDetail" prefHeight="220.0" prefWidth="1260.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.sjh14o3.vehiclerentalsystem.controllers.VehicleCardController">
    <children>
-      <Button fx:id="buttonReserve" layoutX="1080.0" layoutY="128.0" mnemonicParsing="false" onAction="#reserve" prefWidth="150.0" text="Reserve now!" AnchorPane.bottomAnchor="48.0" AnchorPane.rightAnchor="30.0">
+      <Button fx:id="buttonReserve" layoutX="1075.0" layoutY="128.0" mnemonicParsing="false" onAction="#switchToFullDetail" prefWidth="150.0" text="Reserve now!" AnchorPane.bottomAnchor="48.0" AnchorPane.rightAnchor="35.0">
          <font>
             <Font size="20.0" />
          </font>
       </Button>
-      <Label alignment="CENTER" layoutX="1080.0" layoutY="42.0" prefWidth="150.0" text="Daily Rent:" AnchorPane.rightAnchor="30.0">
+      <Label alignment="CENTER" layoutX="1075.0" layoutY="42.0" prefWidth="150.0" text="Daily Rent:" AnchorPane.rightAnchor="35.0">
          <font>
             <Font size="30.0" />
          </font>
       </Label>
-      <Label fx:id="textRent" alignment="CENTER" layoutX="1080.0" layoutY="82.0" prefWidth="150.0" text="3500$" AnchorPane.rightAnchor="30.0">
+      <Label fx:id="textRent" alignment="CENTER" layoutX="1075.0" layoutY="82.0" prefWidth="150.0" text="3500$" AnchorPane.rightAnchor="35.0">
          <font>
             <Font size="30.0" />
          </font>
@@ -46,7 +46,7 @@
             <Font size="13.0" />
          </font>
       </Label>
-      <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="525.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="powerImage" fitHeight="100.0" fitWidth="100.0" layoutX="525.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../images/engine.png" />
          </image>
@@ -56,7 +56,7 @@
             <Font size="20.0" />
          </font>
       </Label>
-      <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="706.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="torqueImage" fitHeight="100.0" fitWidth="100.0" layoutX="706.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../images/turbo.png" />
          </image>

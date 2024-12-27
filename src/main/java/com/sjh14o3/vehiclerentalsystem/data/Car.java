@@ -1,5 +1,7 @@
 package com.sjh14o3.vehiclerentalsystem.data;
 
+import org.bson.types.ObjectId;
+
 public final class  Car extends MotorizedVehicle {
     private byte seats;
     private short trunkCapacity;
@@ -49,6 +51,37 @@ public final class  Car extends MotorizedVehicle {
         this.doors = doors;
     }
 
+    public String getSegmentAsString() {
+        String out;
+        switch (segment) {
+            case SEGMENT_SUV -> out = "SUV";
+            case SEGMENT_CROSSOVER -> out = "Crossover";
+            case SEGMENT_PICKUP_TRUCK -> out = "Pickup Truck";
+            case SEGMENT_SEDAN -> out = "Sedan";
+            case SEGMENT_COUPE -> out = "Coupe";
+            case SEGMENT_WAGON -> out = "Wagon";
+            case SEGMENT_HATCH_BACK -> out = "Hatch Back";
+            case SEGMENT_CONVERTIBLE -> out = "Convertible";
+            case SEGMENT_MPV -> out = "MPV";
+            case SEGMENT_VAN -> out = "VAN";
+            default -> out = "";
+        }
+        return out;
+    }
+
+    @Override
+    public String[] getAttributesAsStringArray() {
+        String[] baseAttributes = super.getAttributesAsStringArray();
+        String[] carAttributes = new String[] {
+                "seats: " + seats,
+                "trunkCapacity: " + trunkCapacity + " L",
+                "segment: " + getSegmentAsString(),
+                "doors: " + doors
+        };
+
+        return mergeArrays(baseAttributes, carAttributes);
+    }
+
     // used for adding to database
     public Car(String make, String model, short year, String imageFolderURI, String color, int dailyRentalRate,
                short weight, int distanceTravelled, byte condition, byte size, byte gears, short power,
@@ -62,7 +95,12 @@ public final class  Car extends MotorizedVehicle {
     }
 
     // used for main list view
-    public Car(String id, String make, String model, short year, String imageFolderURI, int dailyRentalRate, byte availabilityStatus, short weight, byte type, byte gears, short power, short torque, byte transmission) {
+    public Car(ObjectId id, String make, String model, short year, String imageFolderURI, int dailyRentalRate, byte availabilityStatus, short weight, byte type, byte gears, short power, short torque, byte transmission) {
         super(id, make, model, year, imageFolderURI, dailyRentalRate, availabilityStatus, weight, type, gears, power, torque, transmission);
+    }
+
+    // used to set full information
+    public Car() {
+        super();
     }
 }

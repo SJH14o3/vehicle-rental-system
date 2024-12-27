@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.util.Objects;
 import java.util.Optional;
 
-public class LoginController { //TODO: add background image
+public class LoginController {
     @FXML
     private TextField fieldUsername;
     @FXML

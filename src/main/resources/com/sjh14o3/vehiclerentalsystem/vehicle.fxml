@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sjh14o3.vehiclerentalsystem.controllers.VehicleController">
+   <children>
+      <ImageView fx:id="image" fitHeight="400.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" />
+      <Spinner fx:id="daySpinner" layoutX="185.0" layoutY="526.0" prefWidth="250.0" />
+      <Button fx:id="reserveVehicle" layoutX="318.0" layoutY="653.0" mnemonicParsing="false" onAction="#reserveVehicle" text="Reserve">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+      <DatePicker fx:id="datePicker" layoutX="185.0" layoutY="460.0" prefWidth="250.0" promptText="at most 2 weeks from now" />
+      <Label layoutX="185.0" layoutY="492.0" prefWidth="250.0" text="Days to rent (max is 20)">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="185.0" layoutY="423.0" prefWidth="250.0" text="Pick a date">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="200.0" fitWidth="40.0" layoutX="570.0" layoutY="110.0" onMouseClicked="#nextPicture" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../images/right.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="200.0" fitWidth="40.0" layoutX="10.0" layoutY="110.0" onMouseClicked="#previousPicture" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../images/left.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="192.0" layoutY="653.0" mnemonicParsing="false" onAction="#goBackToMain" text="Go back" AnchorPane.bottomAnchor="23.0" AnchorPane.leftAnchor="192.0">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+      <Label fx:id="labelTotal" alignment="CENTER" layoutX="210.0" layoutY="599.0" prefWidth="200.0" text="total">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="211.0" layoutY="561.0" prefWidth="200.0" text="Total Price is:">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <ListView fx:id="informationBoard" layoutX="640.0" layoutY="14.0" prefHeight="684.0" prefWidth="614.0" />
+   </children>
+</AnchorPane>

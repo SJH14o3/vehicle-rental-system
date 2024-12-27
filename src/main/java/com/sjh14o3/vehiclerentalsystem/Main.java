@@ -19,8 +19,7 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         // setting up application window
-        //TODO: make a thread to update users status based on date
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("login.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("login.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1280, 720);
         stage.setTitle("Vehicle Rental System");
         stage.setScene(scene);
@@ -49,6 +48,8 @@ public class Main extends Application {
     }
 
     public static void main(String[] args) {
+        PreUpdateDatabaseThread thread = new PreUpdateDatabaseThread();
+        thread.run();
         launch();
     }
 }

@@ -58,13 +58,35 @@ public class Date {
         return currentDate.format(formatter);
     }
 
+    public static String createNDaysLaterFormat(String in, int n) {
+        System.out.println("input is: " + in);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd");
+        LocalDate date = LocalDate.parse(in, formatter);
+        LocalDate newDate = date.plusDays(n);
+        String out = newDate.format(formatter);
+        System.out.println("new format: " + out);
+        return out;
+    }
+
     public static Date getCurrentDateAsClass() {
         return convertStringToDate(getCurrentDateAsString());
     }
 
     // returns date as a string with YYYYMMDD format
     public String DateToFormattedString() {
-        return "" + year + month + day;
+        String monthStr;
+        if (month < 10) {
+            monthStr = "0" + month;
+        } else {
+            monthStr = "" + month;
+        }
+        String dayStr;
+        if (day < 10) {
+            dayStr = "0" + day;
+        } else {
+            dayStr = "" + day;
+        }
+        return year + monthStr + dayStr;
     }
 
     public Date(short year, byte month, byte day) {
@@ -73,4 +95,11 @@ public class Date {
         this.day = day;
     }
 
+    public static String fancyFormatting(String in) {
+        return in.substring(0,4) + "/" + in.substring(4,6) + "/" + in.substring(6,8);
+    }
+
+    public String fancyFormatting() {
+        return day + "/" + month + "/" + year;
+    }
 }

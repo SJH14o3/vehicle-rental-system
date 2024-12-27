@@ -1,9 +1,10 @@
 package com.sjh14o3.vehiclerentalsystem.data;
 
 import com.sjh14o3.vehiclerentalsystem.Statics;
+import org.bson.types.ObjectId;
 
 public abstract class Vehicle {
-    protected String id;
+    protected ObjectId id;
     protected String Make;
     protected String Model;
     protected short year;
@@ -35,11 +36,11 @@ public abstract class Vehicle {
     public static final byte TYPE_MOTORBIKE = 2;
     public static final byte TYPE_BICYCLE = 3;
 
-    public String getId() {
+    public ObjectId getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(ObjectId id) {
         this.id = id;
     }
 
@@ -154,8 +155,71 @@ public abstract class Vehicle {
     public void setType(byte type) {
         this.type = type;
     }
+
+    public String getAvailabilityStatusAsString() {
+        String out = "";
+        switch (availabilityStatus) {
+            case AVAILABILITY_AVAILABLE -> out = "Available";
+            case AVAILABILITY_RESERVED -> out = "Reserved";
+            case AVAILABILITY_UNAVAILABLE -> out = "Unavailable";
+        }
+        return out;
+    }
+
+    public String getConditionAsString() {
+        String out = "";
+        switch (condition) {
+            case CONDITION_GOOD -> out = "Good";
+            case CONDITION_NEW -> out = "New";
+            case CONDITION_NEEDS_MAINTENANCE -> out = "Needs Maintenance";
+        }
+        return out;
+    }
+
+    public String getSizeAsString() {
+        return switch (size) {
+            case SIZE_SMALL -> "Small";
+            case SIZE_MEDIUM -> "Medium";
+            case SIZE_LARGE -> "Large";
+            default -> "Unknown";
+        };
+    }
+
+    public String getTypeAsString() {
+        return switch (type) {
+            case TYPE_CAR -> "Car";
+            case TYPE_MOTORBIKE -> "Motorbike";
+            case TYPE_BICYCLE -> "Bicycle";
+            default -> "Unknown";
+        };
+    }
     // this function will return information needed for card as a string stream. ~ is used to split stream into needed parts
     public abstract String cardInformation();
+
+    protected static String[] mergeArrays(String[] first, String[] second) {
+        String[] merged = new String[first.length + second.length];
+        System.arraycopy(first, 0, merged, 0, first.length);
+        System.arraycopy(second, 0, merged, first.length, second.length);
+        return merged;
+    }
+
+    public String[] getAttributesAsStringArray() {
+        return new String[] {
+                "make: " + Make,
+                "model: " + Model,
+                "year: " + year,
+                "date added: " + dateAdded.fancyFormatting(),
+                "color: " + Color,
+                "daily Rental Rate: " + dailyRentalRate + "$",
+                "availability Status: " + getAvailabilityStatusAsString(),
+                "weight: " + weight + " KG",
+                "distance Travelled: " + distanceTravelled + " KM",
+                "condition: " + getConditionAsString(),
+                "size: " + getSizeAsString(),
+                "type: " + getTypeAsString(),
+                "gears count: " + gears
+        };
+    }
 
     // used for storing in database
     public Vehicle(String make, String model, short year, String imageFolderURI, String color, int dailyRentalRate,
@@ -177,7 +241,7 @@ public abstract class Vehicle {
     }
 
     // used for main list view
-    public Vehicle(String id, String make, String model, short year, String imageFolderURI, int dailyRentalRate, byte availabilityStatus, short weight, byte type, byte gears) {
+    public Vehicle(ObjectId id, String make, String model, short year, String imageFolderURI, int dailyRentalRate, byte availabilityStatus, short weight, byte type, byte gears) {
         this.id = id;
         Make = make;
         Model = model;
@@ -188,5 +252,9 @@ public abstract class Vehicle {
         this.weight = weight;
         this.type = type;
         this.gears = gears;
+    }
+
+    public Vehicle() {
+
     }
 }
