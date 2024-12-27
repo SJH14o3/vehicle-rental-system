@@ -1,5 +1,7 @@
 package com.sjh14o3.vehiclerentalsystem.data;
 
+import com.sjh14o3.vehiclerentalsystem.Statics;
+
 public abstract class Vehicle {
     protected String id;
     protected String Make;
@@ -14,7 +16,7 @@ public abstract class Vehicle {
     protected int distanceTravelled;
     protected byte condition;
     protected byte size;
-
+    protected byte type;
     protected byte gears;
 
     public static final byte AVAILABILITY_AVAILABLE = 1;
@@ -28,6 +30,11 @@ public abstract class Vehicle {
     public static final byte SIZE_SMALL = 1;
     public static final byte SIZE_MEDIUM = 2;
     public static final byte SIZE_LARGE = 3;
+
+    public static final byte TYPE_CAR = 1;
+    public static final byte TYPE_MOTORBIKE = 2;
+    public static final byte TYPE_BICYCLE = 3;
+
     public String getId() {
         return id;
     }
@@ -137,6 +144,49 @@ public abstract class Vehicle {
     }
 
     public void setGears(byte gears) {
+        this.gears = gears;
+    }
+
+    public byte getType() {
+        return type;
+    }
+
+    public void setType(byte type) {
+        this.type = type;
+    }
+    // this function will return information needed for card as a string stream. ~ is used to split stream into needed parts
+    public abstract String cardInformation();
+
+    // used for storing in database
+    public Vehicle(String make, String model, short year, String imageFolderURI, String color, int dailyRentalRate,
+                   short weight, int distanceTravelled, byte condition, byte size, byte type, byte gears) {
+        Make = make;
+        Model = model;
+        this.year = year;
+        this.dateAdded = Date.getCurrentDateAsClass();
+        ImageFolderURI = imageFolderURI;
+        Color = color;
+        this.dailyRentalRate = dailyRentalRate;
+        this.availabilityStatus = AVAILABILITY_AVAILABLE;
+        this.weight = weight;
+        this.distanceTravelled = distanceTravelled;
+        this.condition = condition;
+        this.size = size;
+        this.type = type;
+        this.gears = gears;
+    }
+
+    // used for main list view
+    public Vehicle(String id, String make, String model, short year, String imageFolderURI, int dailyRentalRate, byte availabilityStatus, short weight, byte type, byte gears) {
+        this.id = id;
+        Make = make;
+        Model = model;
+        this.year = year;
+        ImageFolderURI = imageFolderURI;
+        this.dailyRentalRate = dailyRentalRate;
+        this.availabilityStatus = availabilityStatus;
+        this.weight = weight;
+        this.type = type;
         this.gears = gears;
     }
 }

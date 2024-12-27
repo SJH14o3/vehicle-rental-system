@@ -36,3 +36,9 @@ build/
 
 ### Mac OS ###
 .DS_Store
+/src/main/resources/images/aaaaa.png
+/src/main/resources/com/sjh14o3/vehiclerentalsystem/hello-view.fxml
+/src/main/java/com/sjh14o3/vehiclerentalsystem/HelloApplication.java
+/src/main/java/com/sjh14o3/vehiclerentalsystem/HelloController.java
+/src/main/resources/com/sjh14o3/vehiclerentalsystem/item.fxml
+/src/main/java/com/sjh14o3/vehiclerentalsystem/Item.java

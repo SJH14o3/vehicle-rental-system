@@ -30,6 +30,7 @@ public abstract class MotorizedVehicle extends Vehicle {
     public static final byte CLASSIFICATION_CITY = 1;
     public static final byte CLASSIFICATION_SPORT = 2;
     public static final byte CLASSIFICATION_OFF_ROAD = 3;
+    public static final byte CLASSIFICATION_LUXURY = 4;
 
 
     public short getPower() {
@@ -110,5 +111,53 @@ public abstract class MotorizedVehicle extends Vehicle {
 
     public void setClassification(byte classification) {
         this.classification = classification;
+    }
+
+    public String getTransmissionAsString() {
+        return switch (transmission) {
+            case TRANSMISSION_MANUAL -> "Manual";
+            case TRANSMISSION_AT -> "AT";
+            case TRANSMISSION_DCT -> "DCT";
+            case TRANSMISSION_CVT -> "CVT";
+            default -> "UNKNOWN";
+        };
+    }
+
+    public Integer[] getFuelsAsInt() {
+        Integer[] out = new Integer[fuelType.length];
+        for (int i = 0; i < fuelType.length; i++) {
+            out[i] = (int) fuelType[i];
+        }
+        return out;
+    }
+
+    @Override
+    public String cardInformation() {
+        return getImageFolderURI() + "~" + getMake() + "~" + getModel() + "~" + getYear() + "~" + getPower() + " HP~" +
+                getTorque() + " N.M~" + getGears() + " Speed " + getTransmissionAsString() + "~" + getDailyRentalRate() + "$";
+    }
+
+    public MotorizedVehicle(String make, String model, short year, String imageFolderURI, String color, int dailyRentalRate,
+                            short weight, int distanceTravelled, byte condition, byte size, byte type, byte gears, short power,
+                            short torque, byte transmission, short maxSpeed, double zeroToHundredTime, byte engineType,
+                            byte[] fuelType, short fuelCapacity, short batteryCapacity, byte classification) {
+        super(make, model, year, imageFolderURI, color, dailyRentalRate, weight, distanceTravelled, condition, size, type, gears);
+        this.power = power;
+        this.torque = torque;
+        this.transmission = transmission;
+        this.maxSpeed = maxSpeed;
+        this.zeroToHundredTime = zeroToHundredTime;
+        this.engineType = engineType;
+        this.fuelType = fuelType;
+        this.fuelCapacity = fuelCapacity;
+        this.batteryCapacity = batteryCapacity;
+        this.classification = classification;
+    }
+
+    public MotorizedVehicle(String id, String make, String model, short year, String imageFolderURI, int dailyRentalRate, byte availabilityStatus, short weight, byte type, byte gears, short power, short torque, byte transmission) {
+        super(id, make, model, year, imageFolderURI, dailyRentalRate, availabilityStatus, weight, type, gears);
+        this.power = power;
+        this.torque = torque;
+        this.transmission = transmission;
     }
 }

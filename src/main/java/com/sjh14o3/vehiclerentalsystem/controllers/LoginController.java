@@ -90,18 +90,15 @@ public class LoginController { //TODO: add background image
                 return;
             }
         }
-
-        // success
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Success");
-        alert.setHeaderText("Operation Completed");
-        alert.setContentText("login success");
-        alert.initModality(Modality.APPLICATION_MODAL);
-        alert.initOwner(Statics.getMainStage());
-        Optional<ButtonType> result = alert.showAndWait();
-
-        if (result.isPresent() && result.get() == ButtonType.OK) {
-            //TODO: switch
+        Statics.setUser(Database.getUser(username));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/sjh14o3/vehiclerentalsystem/main.fxml"));
+        Scene scene = null;
+        try {
+            scene = new Scene(loader.load());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
+        Statics.getMainStage().setScene(scene);
+        Statics.getMainStage().show();
     }
 }

@@ -48,4 +48,21 @@ public final class  Car extends MotorizedVehicle {
     public void setDoors(byte doors) {
         this.doors = doors;
     }
+
+    // used for adding to database
+    public Car(String make, String model, short year, String imageFolderURI, String color, int dailyRentalRate,
+               short weight, int distanceTravelled, byte condition, byte size, byte gears, short power,
+               short torque, byte transmission, short maxSpeed, double zeroToHundredTime, byte engineType, byte[] fuelType,
+               short fuelCapacity, short batteryCapacity, byte classification, byte seats, short trunkCapacity, byte segment, byte doors) {
+        super(make, model, year, imageFolderURI, color, dailyRentalRate, weight, distanceTravelled, condition, size, Vehicle.TYPE_CAR, gears, power, torque, transmission, maxSpeed, zeroToHundredTime, engineType, fuelType, fuelCapacity, batteryCapacity, classification);
+        this.seats = seats;
+        this.trunkCapacity = trunkCapacity;
+        this.segment = segment;
+        this.doors = doors;
+    }
+
+    // used for main list view
+    public Car(String id, String make, String model, short year, String imageFolderURI, int dailyRentalRate, byte availabilityStatus, short weight, byte type, byte gears, short power, short torque, byte transmission) {
+        super(id, make, model, year, imageFolderURI, dailyRentalRate, availabilityStatus, weight, type, gears, power, torque, transmission);
+    }
 }

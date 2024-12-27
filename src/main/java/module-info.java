@@ -4,6 +4,7 @@ module com.sjh14o3.vehiclerentalsystem {
     requires org.mongodb.driver.core;
     requires org.mongodb.driver.sync.client;
     requires org.mongodb.bson;
+    requires java.desktop;
 
 
     opens com.sjh14o3.vehiclerentalsystem to javafx.fxml;

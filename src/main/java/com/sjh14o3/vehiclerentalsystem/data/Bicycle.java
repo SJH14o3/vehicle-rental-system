@@ -33,4 +33,25 @@ public final class Bicycle extends Vehicle{
     public void setMaterial(String material) {
         this.material = material;
     }
+
+    // used for storing in database
+    public Bicycle(String make, String model, short year, String imageFolderURI, String color, int dailyRentalRate, short weight,
+                   int distanceTravelled, byte condition, byte size, byte type, byte gears, byte handleBar, String[] accessories, String material) {
+        super(make, model, year, imageFolderURI, color, dailyRentalRate, weight, distanceTravelled, condition, size, type, gears);
+        this.handleBar = handleBar;
+        this.accessories = accessories;
+        this.material = material;
+    }
+
+    // used for main list view
+    public Bicycle(String id, String make, String model, short year, String imageFolderURI, int dailyRentalRate, byte availabilityStatus, short weight, byte type, byte gears, String material) {
+        super(id, make, model, year, imageFolderURI, dailyRentalRate, availabilityStatus, weight, type, gears);
+        this.material = material;
+    }
+
+    @Override
+    public String cardInformation() {
+        return getImageFolderURI() + "~" + getMake() + "~" + getModel() + "~" + getYear() + "~" + getWeight() + " KG~" +
+                getMaterial() + "~" + getGears() + " Speed~" + getDailyRentalRate()  + "$";
+    }
 }

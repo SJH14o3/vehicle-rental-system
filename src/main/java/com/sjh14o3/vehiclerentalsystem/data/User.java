@@ -1,10 +1,13 @@
 package com.sjh14o3.vehiclerentalsystem.data;
 
+import org.bson.types.ObjectId;
+
+import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class User {
-    private String userId;
+    private ObjectId id;
     private String userName;
     private String firstName;
     private String lastName;
@@ -20,12 +23,12 @@ public class User {
     public static final byte STATUS_INUSE = 3;
 
 
-    public String getUserId() {
-        return userId;
+    public ObjectId getId() {
+        return id;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    public void setId(ObjectId id) {
+        this.id = id;
     }
 
     public String getUserName() {
@@ -148,4 +151,32 @@ public class User {
         this.reservationStatus = STATUS_FREE;
     }
 
+    // this constructor is used when user login to app
+    public User(ObjectId id, String userName, String firstName, String lastName, String email, String[] phoneNumbers, Date dateJoined, byte reservationStatus, String address) {
+        this.id = id;
+        this.userName = userName;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.phoneNumbers = phoneNumbers;
+        this.dateJoined = dateJoined;
+        this.reservationStatus = reservationStatus;
+        this.address = address;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", userName='" + userName + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                ", phoneNumbers=" + Arrays.toString(phoneNumbers) +
+                ", dateJoined=" + dateJoined +
+                ", reservationStatus=" + reservationStatus +
+                ", address='" + address + '\'' +
+                ", password='" + password + '\'' +
+                '}';
+    }
 }
