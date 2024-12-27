@@ -102,7 +102,6 @@ public class VehicleController implements Initializable {
 
     // assuming every item of the path are images.
     private static String[] getAllImagesPath(String folderPath) {
-        System.out.println("path is: " + folderPath);
         String[] paths = null;
         File folder = new File(folderPath);
 

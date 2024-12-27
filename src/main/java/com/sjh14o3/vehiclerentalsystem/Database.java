@@ -662,7 +662,6 @@ public class Database {
                             Updates.set(RESERVATION_STATUS, Reservation.STATUS_CANCELLED)               // Set status to 4
                     );
 
-                    System.out.println("user id : " + userId);
                     Statics.getUser().setReservationStatus(User.STATUS_FREE);
                     // Update the user's reservationStatus to free
                     UpdateResult userUpdateResult = usersCollection.updateOne(
@@ -671,7 +670,6 @@ public class Database {
                     );
 
                     // Update the vehicle's availabilityStatus to available
-                    System.out.println("vehicle id : " + vehicleId);
                     UpdateResult vehicleUpdateResult = vehiclesCollection.updateOne(
                             Filters.eq(MONGODB_ID, vehicleId),           // Match the vehicle by vehicleId
                             Updates.set(VEHICLE_AVAILABILITY_STATUS, Vehicle.AVAILABILITY_AVAILABLE)    // Set availabilityStatus to available
@@ -700,8 +698,12 @@ public class Database {
             MongoCollection<Document> usersCollection = database.getCollection(COLLECTION_USERS);
             MongoCollection<Document> vehiclesCollection = database.getCollection(COLLECTION_VEHICLES);
 
-            // Get all reservations
-            FindIterable<Document> reservations = reservationsCollection.find();
+            FindIterable<Document> reservations = reservationsCollection.find(
+                    Filters.and(
+                            Filters.ne(RESERVATION_STATUS, Reservation.STATUS_CANCELLED), // Exclude status canceled
+                            Filters.ne(RESERVATION_STATUS, Reservation.STATUS_FINISHED)  // Exclude status finished
+                    )
+            );
 
             for (Document reservation : reservations) {
                 String reservationDate = reservation.getString(RESERVATION_DATE);
@@ -735,7 +737,7 @@ public class Database {
                     // Update reservation to status 1 (completed)
                     reservationsCollection.updateOne(
                             Filters.eq(MONGODB_ID, reservation.getObjectId(MONGODB_ID)),
-                            Updates.set(RESERVATION_STATUS, Reservation.STATUS_USING)
+                            Updates.set(RESERVATION_STATUS, Reservation.STATUS_FINISHED)
                     );
 
                     // Update user to status 1 (reservation completed)

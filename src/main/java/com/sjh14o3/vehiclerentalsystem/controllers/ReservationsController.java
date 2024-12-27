@@ -81,7 +81,6 @@ public class ReservationsController implements Initializable {
         tableView.getItems().addAll(Database.getUserReservations(Statics.getUser().getId()));
 
         boolean lastReservationIsWaiting = Database.isLastReservationInWaitingMode(Statics.getUser().getId());
-        System.out.println(lastReservationIsWaiting);
         if (lastReservationIsWaiting) {
             buttonCancel.setDisable(false);
         }

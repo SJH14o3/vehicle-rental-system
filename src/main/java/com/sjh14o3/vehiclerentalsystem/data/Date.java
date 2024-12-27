@@ -59,12 +59,10 @@ public class Date {
     }
 
     public static String createNDaysLaterFormat(String in, int n) {
-        System.out.println("input is: " + in);
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd");
         LocalDate date = LocalDate.parse(in, formatter);
         LocalDate newDate = date.plusDays(n);
         String out = newDate.format(formatter);
-        System.out.println("new format: " + out);
         return out;
     }
 
