@@ -1,0 +1,33 @@
+[{
+  "_id": {
+    "$oid": "676d3373dc75df09e8792457"
+  },
+  "userName": "aaa",
+  "firstName": "Mack",
+  "lastName": "Cheese",
+  "email": "asemailcool@email.com",
+  "phoneNumbers": [
+    "01234567890",
+    "09876543210"
+  ],
+  "dateJoined": "20241226",
+  "reservationStatus": 1,
+  "address": "a lives in a unknown place and nobody really knows why. actually no one even know a's pronoun!",
+  "password": "a"
+},
+{
+  "_id": {
+    "$oid": "676e73c31ab09d3ed9f0ef38"
+  },
+  "userName": "bbb",
+  "firstName": "b",
+  "lastName": "b",
+  "email": "b@email.com",
+  "phoneNumbers": [
+    "01234567890"
+  ],
+  "dateJoined": "20241227",
+  "reservationStatus": 1,
+  "address": "b",
+  "password": "b"
+}]

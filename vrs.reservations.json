@@ -1,0 +1,234 @@
+[{
+  "_id": {
+    "$oid": "676e73a2ea937b44315c3c88"
+  },
+  "payment": {
+    "amount": 180
+  },
+  "reservationDate": "20241227",
+  "startDate": "20250101",
+  "endDate": "20250102",
+  "status": 4,
+  "userId": {
+    "$oid": "676d3373dc75df09e8792457"
+  },
+  "vehicleId": {
+    "$oid": "676dbfb45ee1342f557fe844"
+  }
+},
+{
+  "_id": {
+    "$oid": "676e73a2ea937b44315c3c82"
+  },
+  "payment": {
+    "amount": 120
+  },
+  "reservationDate": "20241218",
+  "startDate": "20241219",
+  "endDate": "20241220",
+  "status": 2,
+  "userId": {
+    "$oid": "676d3373dc75df09e8792457"
+  },
+  "vehicleId": {
+    "$oid": "676dbe4df3bdfb05e381b67f"
+  }
+},
+{
+  "_id": {
+    "$oid": "676e73a2ea937b44315c3c83"
+  },
+  "payment": {
+    "amount": 40
+  },
+  "reservationDate": "20241215",
+  "startDate": "20241216",
+  "endDate": "20241217",
+  "status": 2,
+  "userId": {
+    "$oid": "676d3373dc75df09e8792457"
+  },
+  "vehicleId": {
+    "$oid": "676d71305c11f0083d58825a"
+  }
+},
+{
+  "_id": {
+    "$oid": "676e73a2ea937b44315c3c84"
+  },
+  "payment": {
+    "amount": 200
+  },
+  "reservationDate": "20241211",
+  "startDate": "20241212",
+  "endDate": "20241213",
+  "status": 2,
+  "userId": {
+    "$oid": "676d3373dc75df09e8792457"
+  },
+  "vehicleId": {
+    "$oid": "676dbe4df3bdfb05e381b681"
+  }
+},
+{
+  "_id": {
+    "$oid": "676e73a2ea937b44315c3c85"
+  },
+  "payment": {
+    "amount": 40
+  },
+  "reservationDate": "20241208",
+  "startDate": "20241209",
+  "endDate": "20241210",
+  "status": 2,
+  "userId": {
+    "$oid": "676d3373dc75df09e8792457"
+  },
+  "vehicleId": {
+    "$oid": "676dc448147a6f4d9155b2c3"
+  }
+},
+{
+  "_id": {
+    "$oid": "676e73a2ea937b44315c3c87"
+  },
+  "payment": {
+    "amount": 125
+  },
+  "reservationDate": "20241203",
+  "startDate": "20241204",
+  "endDate": "20241205",
+  "status": 2,
+  "userId": {
+    "$oid": "676d3373dc75df09e8792457"
+  },
+  "vehicleId": {
+    "$oid": "676dbe4df3bdfb05e381b683"
+  }
+},
+{
+  "_id": {
+    "$oid": "676e73a2ea937b44315c3c89"
+  },
+  "payment": {
+    "amount": 100
+  },
+  "reservationDate": "20241128",
+  "startDate": "20241129",
+  "endDate": "20241130",
+  "status": 2,
+  "userId": {
+    "$oid": "676d3373dc75df09e8792457"
+  },
+  "vehicleId": {
+    "$oid": "676db9fe9159e14912390743"
+  }
+},
+{
+  "_id": {
+    "$oid": "676e73a2ea937b44315c3c8a"
+  },
+  "payment": {
+    "amount": 35
+  },
+  "reservationDate": "20241125",
+  "startDate": "20241126",
+  "endDate": "20241127",
+  "status": 2,
+  "userId": {
+    "$oid": "676d3373dc75df09e8792457"
+  },
+  "vehicleId": {
+    "$oid": "676dc448147a6f4d9155b2c5"
+  }
+},
+{
+  "_id": {
+    "$oid": "676edbaa4a380c6678f47bbf"
+  },
+  "payment": {
+    "amount": 1120
+  },
+  "reservationDate": "20241227",
+  "startDate": "20250103",
+  "endDate": "20250111",
+  "status": 4,
+  "userId": {
+    "$oid": "676d3373dc75df09e8792457"
+  },
+  "vehicleId": {
+    "$oid": "676dc407e495776abedc69d4"
+  }
+},
+{
+  "_id": {
+    "$oid": "676edde2126d8f53f3b1fbfe"
+  },
+  "payment": {
+    "amount": 980
+  },
+  "reservationDate": "20241227",
+  "startDate": "20241228",
+  "endDate": "20250104",
+  "status": 4,
+  "userId": {
+    "$oid": "676d3373dc75df09e8792457"
+  },
+  "vehicleId": {
+    "$oid": "676dc407e495776abedc69d4"
+  }
+},
+{
+  "_id": {
+    "$oid": "676edeab5d43cf0abe1b3409"
+  },
+  "payment": {
+    "amount": 35
+  },
+  "reservationDate": "20241227",
+  "startDate": "20241228",
+  "endDate": "20241229",
+  "status": 4,
+  "userId": {
+    "$oid": "676d3373dc75df09e8792457"
+  },
+  "vehicleId": {
+    "$oid": "676dc448147a6f4d9155b2c5"
+  }
+},
+{
+  "_id": {
+    "$oid": "676edf064e23cb213162904a"
+  },
+  "payment": {
+    "amount": 600
+  },
+  "reservationDate": "20241227",
+  "startDate": "20241228",
+  "endDate": "20250103",
+  "status": 4,
+  "userId": {
+    "$oid": "676d3373dc75df09e8792457"
+  },
+  "vehicleId": {
+    "$oid": "676d71305c11f0083d58825c"
+  }
+},
+{
+  "_id": {
+    "$oid": "676ee5414ff26459179ba217"
+  },
+  "payment": {
+    "amount": 1440
+  },
+  "reservationDate": "20241220",
+  "startDate": "20241225",
+  "endDate": "20241226",
+  "status": 2,
+  "userId": {
+    "$oid": "676e73c31ab09d3ed9f0ef38"
+  },
+  "vehicleId": {
+    "$oid": "676dbfb45ee1342f557fe844"
+  }
+}]
